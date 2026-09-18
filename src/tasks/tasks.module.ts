@@ -8,5 +8,14 @@ import { UsersModule } from '../users/users.module.js';
 import { Task } from './task.entity.js';
 import { TasksService } from './tasks.service.js';
 import { TasksController } from './tasks.controller.js';
-@Module({ imports: [TypeOrmModule.forFeature([Task, User, Customer]), AuthModule, UsersModule, CustomersModule], providers: [TasksService], controllers: [TasksController] })
+@Module({
+  imports: [
+    TypeOrmModule.forFeature([Task, User, Customer]),
+    AuthModule,
+    UsersModule,
+    CustomersModule,
+  ],
+  providers: [TasksService],
+  controllers: [TasksController],
+})
 export class TasksModule {}

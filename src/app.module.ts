@@ -26,7 +26,9 @@ import { Task } from './tasks/task.entity.js';
           url: databaseUrl,
           entities: [User, Customer, Task],
           synchronize: config.get('NODE_ENV') !== 'production',
-          ssl: databaseUrl.includes('sslmode=require') ? { rejectUnauthorized: false } : false,
+          ssl: databaseUrl.includes('sslmode=require')
+            ? { rejectUnauthorized: false }
+            : false,
         };
       },
     }),

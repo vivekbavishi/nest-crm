@@ -14,7 +14,10 @@ describe('AppController', () => {
 
   describe('root', () => {
     it('should report the API status', () => {
-      expect(appController.getStatus()).toEqual({ name: 'CRM Task Manager API', status: 'ok' });
+      expect(appController.getStatus()).toEqual({
+        name: 'CRM Task Manager API',
+        status: 'ok',
+      });
     });
   });
 });
