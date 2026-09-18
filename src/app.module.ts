@@ -20,12 +20,14 @@ import { Task } from './tasks/task.entity.js';
         if (!databaseUrl) {
           throw new Error('DATABASE_URL is required');
         }
+        const synchronize =
+          config.get<string>('DATABASE_SYNCHRONIZE', 'true') === 'true';
 
         return {
           type: 'postgres',
           url: databaseUrl,
           entities: [User, Customer, Task],
-          synchronize: config.get('NODE_ENV') !== 'production',
+          synchronize,
           ssl: databaseUrl.includes('sslmode=require')
             ? { rejectUnauthorized: false }
             : false,
