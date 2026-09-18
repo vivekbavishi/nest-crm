@@ -1,4 +1,5 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import type { Relation } from 'typeorm';
 import { Task } from '../tasks/task.entity.js';
 
 @Entity('customers')
@@ -8,5 +9,5 @@ export class Customer {
   @Column({ unique: true }) email!: string;
   @Column() company!: string;
   @Column() contact!: string;
-  @OneToMany(() => Task, (task) => task.customer) tasks!: Task[];
+  @OneToMany(() => Task, (task) => task.customer) tasks!: Relation<Task[]>;
 }
